@@ -1,0 +1,6 @@
+printMonthName(): 
+takes two integers as inputs, one representing the year and the other representing the month
+uses a switch statement with a single case for each month 
+    (0 indexed -> 0 through 11 representing January through December)
+    each case prints the name of the month and the year to the terminal
+    each case returns the number of days in that month

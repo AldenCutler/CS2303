@@ -1,0 +1,49 @@
+HW3 Pseudocode
+Alden Cutler, 2/7/2023
+
+In analysis.c:
+    allocate arrays to store 6 months of data
+    initialize money and month_data to zeros
+    loop over all months
+        open sales file
+        load sales data
+        end loop
+    load sales data into file
+    call all three functions from functions.c
+
+In functions.c:
+    define ITEMS to be 51
+    In get_totals(int[][7], int, int):
+        initialize variables
+        loop over all columns
+            loop over all the rows
+                add the number of items sold to the count
+                print the item nubmer and the number of items sold to the file
+        close the file.
+
+    In get_profits(int[][7], int, int, float[][2]):
+        initialize variables
+        print the header of the file
+        loop over all the columns  
+            get the item number
+            loop over all the rows 
+                add the number of items sold to the count
+            calculate the total cost of the item
+            calculate the total revenue of the item
+            print the item number, the number of items sold, the cost, the sales, and the profit to the file
+        close the file
+
+    In top_earner(int[][7], int, int, float[][2]):
+        initialize variables
+        print the header of the file
+        loop through all items to calculate the revenue of each item
+        get the item number
+            get the total number of items sold
+            calculate the revenue of that item
+            store the item number and the total number of that item sold in the data array
+        loop 10 times to print the top 10 Top_earners
+            find the item with the highest revenue
+            using the index of that item, get ther revenue of that item
+            print the item number, total sales, and revenue of the item with the highest revenue to the file
+            reset the revenue of the highest item to 0 so that it isn't printed more than once
+        close the file

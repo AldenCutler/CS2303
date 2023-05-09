@@ -1,0 +1,42 @@
+HW1 Pseudocode: 
+Alden Cutler, 1/24/2023
+
+In main(void):
+    initialize variables
+    prompt user for input and store value in previously initialized variable
+    call printCalendar giving the input year as an argument
+
+In printCalendar(int year):
+    initialize variables (days and currentDay)
+    print calendar title
+    loop through all 12 months:
+        get the number of days in each month (days = numberOfDays(year, i))
+        print the name of the month
+        print day headers (Sun Mon Tue ...)
+        loop to print day numbers:
+            use 5 spaces to print each number (3 for the number, 2 for spacing on each side)
+            check if we reach the end of the week
+                if so, go to the next line and start from the left side
+        once we reach the end of the month, reset the currentDay variable and print a new line
+
+Note: I found this algorithm online and simplified it to be more readable (source: https://stackoverflow.com/questions/6054016/c-program-to-find-day-of-week-given-date)
+In dayNumber(in day, int month, int year):
+    if the given month is January, February, or March,
+        day = day + year
+        year = year - 1
+    otherwise, 
+        day = day + year - 2
+    Then, create an integer called index:
+        index = (23 * month/9);
+        index += day;
+        index += 4;
+        index += year/4;
+        index -= year/100;
+        index += year/400;
+        return index % 7;
+
+In numberOfDays(int year, int month):
+    use a switch statement with cases ranging from 0 to 11, returning the number of days in each corresponding month, and accounting for leap years. 
+
+In printMonthName(int year, int month):
+    same as numberOfDays except this function also prints the name of each corresponding month to the terminal.

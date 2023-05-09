@@ -1,0 +1,51 @@
+HW2 Pseudocode
+Alden Cutler
+1/31/2023
+
+In the file coffee_shop.c:
+    in int main(void):
+        initialize variables
+        ask the user for input on which calculation to run
+        store that value in a variable taskNum
+        ask the user for an input file and store that value as fileName
+        open the file given
+        switch statement:
+            depending on what the user input was (1, 2, or 3, otherwise we print "This option is not valid.")
+            1: 
+                call the function that calculates overall revenue from the other c file
+                break;
+            2: 
+                call the function that calculates balance from the other c file
+                break;
+            3: 
+                Ask which item the user wants to analyze and store that value as the item id
+                call the function that calculates the total number of sales from the other c file
+        return
+
+
+In the file calculations.c:
+    in float overall_revenue(FILE *f1):
+        initialize variables
+        loop through the entire input file:
+            if the item ID number isn't 0 (meaning that line represents the sale of an item)
+                then add the revenue from that sale to the total
+        print the total revenue
+        return revenue
+
+    in float balance (FILE *f1):
+        initialize variables
+        very similiarly to overall_revenue, we loop through the entire input file, except this time we don't filter out the original balance   
+            balance += price
+        print total balance
+        return
+
+    in int tally(FILE *f1, int itemNum):
+        initialize variables
+        Ask user where the output should go and store the value
+        Ask the user if they want to append the output to the end of the file or overwrite the given file, and store the decision
+        loop through the entire input file and every time the item ID matches the given item number to look for, increase count by 1
+            at the same time, also add the price of that item to a mounting total that will calculate the total revenue made from sales of that particular item
+        If the user wanted to append the results to the end of the output file, then use fopen(outputFile, "a"), otherwise use fopen(outputFile, "w").
+            If neither of those inputs were detected, print "Invalid input." and return 0.
+        Write the results to the output file, then close and return count.
+        
